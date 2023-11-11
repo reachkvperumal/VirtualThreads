@@ -1,5 +1,5 @@
 # VirtualThreads
 Learn Virtual Threads
 
-# StructuredThreadScope
-# ScopedValue
+## StructuredTaskScope
+## ScopedValue
