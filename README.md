@@ -5,6 +5,14 @@ Left hand side in the following image is Platform thread & Right hand side is Vi
 ![image](https://github.com/reachkvperumal/VirtualThreads/assets/18358866/932bce8a-614b-4518-9fad-22ea39157d64)
 
 
+These virtual threads are mounted on carrier threads. 
+ 
+- When the virtual thread attempts to use blocking I/O, the JVM transforms this call into a non-blocking one. 
+- Unmounts the virtual thread, and mounts another virtual thread on the carrier thread. 
+- When the I/O completes, the waiting virtual thread becomes eligible again and will be re-mounted on a carrier thread to continue its execution. 
+- For the user, all this dance is invisible. Your synchronous code is executed asynchronously.
+
+Note that the virtual thread may not be re-mounted on the same carrier thread.
 
 Difference between OS Threads & Virtual Threads while iterating for 10,000 times with sleep time of 1 second.
 
