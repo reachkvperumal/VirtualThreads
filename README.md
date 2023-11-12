@@ -1,5 +1,7 @@
 # VirtualThreads
 
+Left hand side in the following image is Platform thread & Right hand side is Virtual Thread
+
 ![image](https://github.com/reachkvperumal/VirtualThreads/assets/18358866/932bce8a-614b-4518-9fad-22ea39157d64)
 
 
