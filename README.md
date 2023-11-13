@@ -26,11 +26,11 @@ Left hand side in the following image is Platform thread & Right hand side is Vi
 
 Difference between OS Threads & Virtual Threads while iterating for 10,000 times with sleep time of 1 second.
 
-## Starting OS THREADS...
-# Total Elapsed Time for OS THREADS in seconds: 101
+# Starting OS THREADS...
+## Total Elapsed Time for OS THREADS in seconds: 101
 
-## Starting VIRTUAL THREADS...
-# Total Elapsed Time for VIRTUAL THREADS in Seconds: 1
+# Starting VIRTUAL THREADS...
+## Total Elapsed Time for VIRTUAL THREADS in Seconds: 1
 
 ## StructuredTaskScope
 Following is the output from StructuredTaskScope execution.
