@@ -5,6 +5,40 @@
 ![image](https://github.com/reachkvperumal/VirtualThreads/assets/18358866/932bce8a-614b-4518-9fad-22ea39157d64)
 
 
+## In linux --> https://dustycodes.wordpress.com/2012/02/09/increasing-number-of-threads-per-process/
+
+# The maximum number of threads that can be spawned in a Spring Boot 3 application on a Linux OS is influenced by the operating system's limit on the number of threads per process. 
+In Linux, the maximum number of threads per process is governed by various factors such as the amount of virtual memory, stack size, and system parameters. 
+The limit on the number of threads per process in Linux is not a fixed value and can be influenced by the operating system and memory constraints
+https://www.baeldung.com/linux/max-threads-per-process 
+. Therefore, the specific number of threads that can be spawned in a Spring Boot 3 application on a Linux OS is subject to the limitations imposed by the operating system.
+
+There is no direct limit on number of threads a process can have. Rather, this is calculated using following formula:
+
+number of threads = total virtual memory / (stack size*1024*1024)
+
+Thus, the number of threads per process can by increasing total virtual memory or by decreasing stack size. 
+Decreasing stack size can lead to code failure due to stack overflow while max virtual memory is equal to the swap memory.
+
+Check you machine:
+
+Total Virtual Memory: ulimit -v (default is unlimited, thus you need to increase swap memory to increase this)
+
+Total Stack Size: ulimit -s (default is 8Mb)
+
+Command to increase these values:
+
+ulimit -s newvalue
+
+ulimit -v newvalue
+
+replace new value with the value you want to put as limit.
+
+How to increase swap memory?
+
+http://www.ehow.com/how_5001512_increase-virtual-memory-linux.html
+https://man7.org/linux/man-pages/man2/getrlimit.2.html
+
 ## These virtual threads are mounted on carrier threads. 
  
 - When the virtual thread attempts to use blocking I/O, the JVM transforms this call into a non-blocking one. 
