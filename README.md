@@ -35,10 +35,14 @@ ulimit -v newvalue
 replace new value with the value you want to put as limit.
 
 How to increase swap memory?
-
+Use the following links for reference.
+```
 http://www.ehow.com/how_5001512_increase-virtual-memory-linux.html
 https://man7.org/linux/man-pages/man2/getrlimit.2.html
 
+https://www.geeksforgeeks.org/difference-between-process-and-thread/
+https://www.geeksforgeeks.org/thread-in-operating-system/
+```
 ## These virtual threads are mounted on carrier threads. 
  
 - When the virtual thread attempts to use blocking I/O, the JVM transforms this call into a non-blocking one. 
