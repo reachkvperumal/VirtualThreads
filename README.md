@@ -37,6 +37,9 @@ replace new value with the value you want to put as limit.
 How to increase swap memory?
 Use the following links for reference.
 ```
+server.tomcat.threads.max=10
+spring.threads.virtual.enabled=true
+
 http://www.ehow.com/how_5001512_increase-virtual-memory-linux.html
 https://man7.org/linux/man-pages/man2/getrlimit.2.html
 
