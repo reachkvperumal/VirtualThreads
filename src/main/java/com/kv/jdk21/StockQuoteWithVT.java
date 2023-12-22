@@ -7,7 +7,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.StructuredTaskScope;
-import java.util.function.Supplier;
+import java.util.concurrent.StructuredTaskScope.Subtask;
 
 import static com.kv.jdk21.YahooEndPoints.*;
 
@@ -41,11 +41,11 @@ public class StockQuoteWithVT {
 
     private static YahooReports getTickerDetails(String key, String ticker) throws Exception {
         try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-            Supplier<String> summary = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_SUMMARY, ticker)));
-            Supplier<String> options = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_OPTIONS, ticker)));
-            Supplier<String> topHoldings = scope.fork(() -> getQuote(key, YahooEndPoints.get(TOP_HOLDINGS, ticker)));
-            Supplier<String> earnings = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_EARNINGS, ticker)));
-            Supplier<String> financials = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_FINANCIALS, ticker)));
+            Subtask<String> summary = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_SUMMARY, ticker)));
+            Subtask<String> options = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_OPTIONS, ticker)));
+            Subtask<String> topHoldings = scope.fork(() -> getQuote(key, YahooEndPoints.get(TOP_HOLDINGS, ticker)));
+            Subtask<String> earnings = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_EARNINGS, ticker)));
+            Subtask<String> financials = scope.fork(() -> getQuote(key, YahooEndPoints.get(GET_FINANCIALS, ticker)));
             scope.join();
             scope.throwIfFailed(AlphaVantageException::new);
             return new YahooReports(summary.get(),financials.get(),options.get(),topHoldings.get(),earnings.get());
