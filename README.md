@@ -91,4 +91,4 @@ getOptions={"message":"You have exceeded the rate limit per second for your plan
 topHoldings={"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}, 
 getEarnings={"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}]
 
-## ScopedValue - Pending
+## ScopedValue - Implemented
